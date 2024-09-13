@@ -15,5 +15,7 @@ public class Parent {
     private String userName;
     private String password;
 
-//    private Family family;
+    @ManyToOne
+    @JoinColumn(name = "family_id")
+    private Family family;
 }

@@ -13,11 +13,14 @@ public class Kid {
     private Long id;
     private String firstName;
     private String lastName;
-
     private int age;
     private String userName;
     private String password;
-//    @OneToMany(mappedBy = "kid")
-//    private List<Task> tasks;
-//    private Family family;
+
+    @OneToMany(mappedBy = "kid")
+    private List<Task> tasks;
+
+    @ManyToOne
+    @JoinColumn(name = "family_id")
+    private Family family;
 }
