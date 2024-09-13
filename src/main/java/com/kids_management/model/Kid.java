@@ -5,19 +5,19 @@ import lombok.Data;
 
 import java.util.List;
 
-@Entity
 @Data
+@Entity
 public class Kid {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String firstName;
     private String lastName;
 
     private int age;
     private String userName;
     private String password;
-    @OneToMany(mappedBy = "kid")
-    private List<Task> tasks;
-    private Family family;
+//    @OneToMany(mappedBy = "kid")
+//    private List<Task> tasks;
+//    private Family family;
 }

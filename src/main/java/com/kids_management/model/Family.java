@@ -5,18 +5,17 @@ import lombok.Data;
 
 import java.util.List;
 
-
-@Entity
 @Data
+@Entity
 public class Family {
    @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+   @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String familyName;
 
-    @OneToMany(mappedBy = "family", cascade = CascadeType.ALL)
-    private List<Parent> parents;
-    @OneToMany(mappedBy = "family", cascade = CascadeType.ALL)
-    private List<Kid> kids;
+//    @OneToMany(mappedBy = "family", cascade = CascadeType.ALL)
+//    private List<Parent> parents;
+//    @OneToMany(mappedBy = "family", cascade = CascadeType.ALL)
+//    private List<Kid> kids;
 }
 
