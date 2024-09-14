@@ -19,7 +19,7 @@ public class KidService {
         return kidRepository.findByFirstName(firstName);
     }
 
-    public Long saveKid(KidDto kidDto) {
+    public Long createKid(KidDto kidDto) {
         Kid kid = new Kid();
         kid.setFirstName(kidDto.getFirstName());
         kid = kidRepository.save(kid);

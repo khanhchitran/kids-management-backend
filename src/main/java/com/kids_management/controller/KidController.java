@@ -5,10 +5,10 @@ import com.kids_management.model.Kid;
 import com.kids_management.repository.KidRepository;
 import com.kids_management.service.KidService;
 import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -25,6 +25,7 @@ public class KidController {
     @GetMapping()
     public ResponseEntity<List<Kid>> findByFirstName(@RequestParam String firstName) {
         List<Kid> kids = kidRepository.findByFirstName(firstName);
+
         if (kids.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
@@ -32,8 +33,10 @@ public class KidController {
     }
 
     @PostMapping()
-    private ResponseEntity<Long> saveKid(@RequestBody @Valid KidDto kidDto) {
-        Long kidId = kidService.saveKid(kidDto);
-        return new ResponseEntity<>(kidId, HttpStatus.CREATED);
+    private ResponseEntity<Long> createKid(@RequestBody @Valid KidDto kidDto) {
+        Long kidId = kidService.createKid(kidDto);
+        URI location = URI.create("api/v1/kids" + kidId);
+
+        return ResponseEntity.created(location).body(kidId);
     }
 }
