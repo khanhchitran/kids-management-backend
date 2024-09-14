@@ -3,14 +3,12 @@ package com.kids_management.service;
 import com.kids_management.dto.FamilyDto;
 import com.kids_management.model.Family;
 import com.kids_management.repository.FamilyRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class FamilyService {
 
-    @Autowired
-    private  FamilyRepository familyRepository;
+    private final FamilyRepository familyRepository;
 
     public FamilyService(FamilyRepository familyRepository) {
         this.familyRepository = familyRepository;
