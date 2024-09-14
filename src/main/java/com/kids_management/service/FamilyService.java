@@ -5,6 +5,9 @@ import com.kids_management.model.Family;
 import com.kids_management.repository.FamilyRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class FamilyService {
 
@@ -19,5 +22,9 @@ public class FamilyService {
         family.setFamilyName(familyDto.getFamilyName());
         family = familyRepository.save(family);
         return family.getId();
+    }
+
+    public List<Family> findByFamilyName(String familyName) {
+        return familyRepository.findByFamilyName(familyName);
     }
 }
