@@ -2,6 +2,7 @@ package com.kids_management.controller;
 
 import com.kids_management.dto.FamilyDto;
 import com.kids_management.model.Family;
+import com.kids_management.model.Kid;
 import com.kids_management.service.FamilyService;
 import jakarta.validation.Valid;
 import org.springframework.data.jpa.repository.Query;
@@ -39,5 +40,14 @@ public class FamilyController {
         }
         return ResponseEntity.ok(families);
     }
+
+//    @GetMapping()
+//    public ResponseEntity<List<Kid>> findKidByFamilyName(@RequestParam() String familyName){
+//        List<Kid> kids = familyService.findKidByFamilyName(familyName);
+//        if(kids.isEmpty()) {
+//            return ResponseEntity.notFound().build();
+//        }
+//        return ResponseEntity.ok(kids);
+//    }
 
 }
